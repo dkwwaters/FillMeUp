@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FuelFinderClientID</key>
+	<string>$(FUEL_FINDER_CLIENT_ID)</string>
+	<key>FuelFinderClientSecret</key>
+	<string>$(FUEL_FINDER_CLIENT_SECRET)</string>
+	<key>FuelFinderAPIHost</key>
+	<string>$(FUEL_FINDER_API_HOST)</string>
+	<key>FillMeUpAPIHost</key>
+	<string>$(FILL_ME_UP_API_HOST)</string>
+	<key>FillMeUpAPIKey</key>
+	<string>$(FILL_ME_UP_API_KEY)</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<true/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>CPTemplateApplicationSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneClassName</key>
+					<string>CPTemplateApplicationScene</string>
+					<key>UISceneConfigurationName</key>
+					<string>CarPlay</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).CarPlaySceneDelegate</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>

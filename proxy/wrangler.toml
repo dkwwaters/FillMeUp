@@ -1,0 +1,21 @@
+name = "fill-me-up-proxy"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+# Stations hourly and prices every 15 minutes, per the Fuel Finder guidelines.
+[triggers]
+crons = ["*/15 * * * *"]
+
+# Create with: npx wrangler kv namespace create FUEL
+# then paste the id it prints here.
+[[kv_namespaces]]
+binding = "FUEL"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# Secrets — set with `npx wrangler secret put <NAME>`, never in this file:
+#   FUEL_FINDER_CLIENT_ID
+#   FUEL_FINDER_CLIENT_SECRET
+#   APP_KEY                 any long random string; the app sends it as X-App-Key
+# Optional plain variable, only for test-environment credentials:
+# [vars]
+# FUEL_FINDER_API_HOST = "..."

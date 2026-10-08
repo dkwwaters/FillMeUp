@@ -1,0 +1,19 @@
+// Shared build settings for Fill Me Up.
+//
+// Where the app gets prices from is set in Secrets.xcconfig, which is
+// gitignored. Copy Secrets.example.xcconfig to Secrets.xcconfig and fill it in.
+// The optional include means the project still builds without it; the app
+// then shows a "not set up" message instead of prices.
+
+// Release builds: the Fill Me Up proxy (see ../proxy). Host only, no https.
+FILL_ME_UP_API_HOST =
+FILL_ME_UP_API_KEY =
+
+// Debug builds only: call the Fuel Finder API directly when no proxy host is
+// set. Release builds ignore these; Fuel Finder's terms forbid shipping the
+// client secret inside an app. Leave the host empty for the live service.
+FUEL_FINDER_CLIENT_ID =
+FUEL_FINDER_CLIENT_SECRET =
+FUEL_FINDER_API_HOST =
+
+#include? "Secrets.xcconfig"
