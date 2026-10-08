@@ -8,7 +8,7 @@ sorted cheapest first. Tap a station to get directions in Apple Maps, Google
 Maps or Waze. That's all it does.
 
 ```
-FillMeUp/
+.
 ├── FillMeUp.xcodeproj
 ├── Config/          build settings, Info.plist, CarPlay entitlement
 ├── FillMeUp/        the iOS app (Swift / SwiftUI, iOS 17+)

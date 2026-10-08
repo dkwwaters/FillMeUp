@@ -67,7 +67,7 @@ struct DirectFuelSource: FuelDataSource {
 }
 
 /// Fetches every station in one request from the Fill Me Up proxy (see
-/// /FillMeUp/proxy), which holds the API credentials server-side and serves
+/// proxy/ in this repo), which holds the API credentials server-side and serves
 /// the app's own trimmed-down format rather than raw API data.
 struct ProxyFuelSource: FuelDataSource {
     let endpoint: URL
