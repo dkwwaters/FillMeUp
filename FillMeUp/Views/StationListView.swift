@@ -52,7 +52,7 @@ struct StationListView: View {
             }
             .overlay { emptyState }
             .navigationTitle("Fill Me Up")
-            .refreshable { await model.refresh(force: true) }
+            .refreshable { await self.model.refresh(force: true) }
             .confirmationDialog(
                 directionsTo.map { "Directions to \($0.station.title)" } ?? "",
                 isPresented: Binding(get: { directionsTo != nil }, set: { if !$0 { directionsTo = nil } }),

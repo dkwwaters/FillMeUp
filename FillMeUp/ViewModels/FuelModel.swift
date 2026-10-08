@@ -101,6 +101,7 @@ final class FuelModel {
     @ObservationIgnored private var stations: [Station] = []
     @ObservationIgnored private var resultsOrigin: CLLocation?
     @ObservationIgnored private var started = false
+    @ObservationIgnored private var isRefreshing = false
 
     private enum Keys {
         static let fuel = "fuelType"
@@ -138,6 +139,11 @@ final class FuelModel {
             return
         }
         location.start()
+        // A refresh is already running (e.g. launch and foregrounding at once);
+        // let it finish and own the status.
+        guard !isRefreshing else { return }
+        isRefreshing = true
+        defer { isRefreshing = false }
         status = .loading(hasStations ? "Checking for new prices…" : "Fetching UK fuel prices…")
         do {
             let progress: @Sendable (String) -> Void = { [weak self] message in

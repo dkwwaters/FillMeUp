@@ -128,7 +128,9 @@ actor FuelFinderClient {
                 retriedAuth = true
                 accessToken = nil
             case 429 where rateLimitRetries < 4:
-                let retryAfter = response.value(forHTTPHeaderField: "Retry-After").flatMap(Double.init)
+                let retryAfter = response.value(forHTTPHeaderField: "Retry-After")
+                    .flatMap(Double.init)
+                    .flatMap { $0.isFinite && $0 >= 0 ? $0 : nil }
                 let delay = min(retryAfter ?? 5 * pow(2, Double(rateLimitRetries)), 60)
                 rateLimitRetries += 1
                 try await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
